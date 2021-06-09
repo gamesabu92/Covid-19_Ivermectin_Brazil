@@ -1,3 +1,19 @@
+################################################################################
+## Script name: cases_death_Brazil1.R                                         ##
+##                                                                            ##
+## Purpose of script:Script to extract data and build charts for letter to    ##
+## the editor "Inaccurate real world data does not provide real world answers"##
+## for "American Journal of Therapeutics"                                     ##
+##                                                                            ##
+## Author: Gabriela Buffet M.D                                                ##
+##                                                                            ##
+## Date Created: 2021-05-15                                                   ##
+##                                                                            ##
+## Copyright (c) Gabriela Buffet, 2021                                        ##
+## Email: mbuffet808@gmail.com                                                ##
+##                                                                            ##
+################################################################################
+
 
 library(tidyverse) 
 library(scales)
@@ -12,18 +28,18 @@ library(ggrepel)
 setwd("~/ivermectina/ivermectin/brasil")
 getwd()
 
+#Attention!!!file name changes with updated date. Change updated date in script 
+#Download updated .rar file " https://covid.saude.gov.br/"HIST_PAINEL_COVIDBR_08jun2021.rar" 
+#Put it in brasil folder selected in R.
+#Then, extract (unrar) the file.
+#rar file has 3 big files
 
-# Download .rar file " https://covid.saude.gov.br/"HIST_PAINEL_COVIDBR_08jun2021.rar"
-#Unpack rar archives 
-
-
-
-# read and rename file
+# read and rename files
 covid_dataset1 = read.csv("~/ivermectina/ivermectin/brasil/HIST_PAINEL_COVIDBR_2020_Parte1_08jun2021.csv", sep=";")
 covid_dataset2 = read.csv("~/ivermectina/ivermectin/brasil/HIST_PAINEL_COVIDBR_2020_Parte2_08jun2021.csv", sep=";")
 covid_dataset3 = read.csv("~/ivermectina/ivermectin/brasil/HIST_PAINEL_COVIDBR_Parte3_08jun2021.csv", sep=";")
 
-#joint all files
+#Merge all files
 covid_dataset<-rbind(covid_dataset1,covid_dataset2,covid_dataset3 )
 
 head(covid_dataset)
